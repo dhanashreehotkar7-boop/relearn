@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C Mental Model Flashcards | Re:Learn</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Ambient Glow -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Global Header Navigation -->
+  <header class="header-nav" id="globalAppHeader"></header>
+
+  <main class="page-container">
+    <div class="problems-header-hero" style="text-align: center; justify-content: center; flex-direction: column;">
+      <h1>Spaced Repetition Flashcards</h1>
+      <p style="max-width: 600px; margin: 0.5rem auto 0;">Auto-generated cards from your previous compiler errors and logic misconceptions. Click a card to flip.</p>
+    </div>
+
+    <div class="flashcards-container" id="flashcardsRoot">
+      <!-- 3D Interactive Card Container -->
+      <div class="flashcard-3d-wrapper" id="activeCardWrapper">
+        <div class="flashcard-inner" id="activeCardInner">
+          <!-- Front Face -->
+          <div class="flashcard-face flashcard-front" id="cardFrontFace">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <span class="card-box-badge" id="cardBoxTag">Box 1 (New)</span>
+                <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 700;" id="cardIndexTracker">Card 1 of 2</span>
+              </div>
+              <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem;" id="cardFrontTitle">Loading concept...</h2>
+              <pre style="background: #080C14; border: 1px solid rgba(255,255,255,0.08); padding: 1rem; border-radius: var(--radius-md); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #E2E8F0;"><code id="cardFrontCodeSnippet">// Code snippet</code></pre>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--cyan-accent); font-weight: 700;">
+              <span>Click anywhere on the card to reveal explanation ↺</span>
+            </div>
+          </div>
+
+          <!-- Back Face -->
+          <div class="flashcard-face flashcard-back" id="cardBackFace">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <span class="card-box-badge" style="background: rgba(16, 185, 129, 0.2); color: #6EE7B7; border-color: rgba(16, 185, 129, 0.4);">Concept &amp; Fix</span>
+                <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 700;">Back</span>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: #38BDF8; margin-bottom: 0.75rem;">Why this happens:</h3>
+              <p style="font-size: 0.95rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1.25rem;" id="cardBackConceptText"></p>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: #34D399; margin-bottom: 0.5rem;">How to fix:</h3>
+              <div style="font-size: 0.92rem; color: #CBD5E1; line-height: 1.5; background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid #10B981;" id="cardBackFixText"></div>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-dim); text-align: right;">
+              Click card to flip back ↺
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rating Buttons -->
+      <div class="card-rating-actions" id="cardRatingControls">
+        <button class="btn-card-again" id="btnCardAgain">🔁 Again (Review Soon)</button>
+        <button class="btn-card-gotit" id="btnCardGotIt">✓ Got It (Advance Box)</button>
+      </div>
+
+      <!-- Finished All Cards View -->
+      <div id="noCardsNotice" style="display: none; text-align: center; padding: 3rem; background: var(--glass-card-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl);">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem;">All caught up!</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">You have reviewed all available flashcards. Keep practicing problems to generate new cards from any future mistakes.</p>
+        <a href="/problems" class="nav-btn-ghost" style="display: inline-block;">Return to Problems</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/syntax.js"></script>
+  <script src="/static/js/app_header.js"></script>
+  <script src="/static/js/cards.js"></script>
+</body>
+</html>

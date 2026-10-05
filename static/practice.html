@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice: Arrays & Operators | Re:Learn</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Floating Glowing Blobs -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <a href="/dashboard" class="brand-logo" id="practiceLogoLink">
+      <div class="logo-icon-wrap">
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 7C9.5 7 7.5 9 7.5 11.5C7.5 12.5 7.8 13.4 8.4 14.1C6.4 15.2 5 17.4 5 20C5 23.3 7.7 26 11 26C11.6 26 12.2 25.9 12.7 25.7" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M20 7C22.5 7 24.5 9 24.5 11.5C24.5 12.5 24.2 13.4 23.6 14.1C25.6 15.2 27 17.4 27 20C27 23.3 24.3 26 21 26C20.4 26 19.8 25.9 19.3 25.7" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 14L8 16.5L11 19" stroke="#818CF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 14L24 16.5L21 19" stroke="#818CF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 13L15 20" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <span class="brand-name">Re:Learn</span>
+        <span class="brand-tag"> [Practice]</span>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <button class="nav-btn-ghost" id="logoutBtn" style="cursor: pointer; font-family: inherit;">Sign Out</button>
+    </nav>
+  </header>
+
+  <!-- Main Practice View -->
+  <main class="page-container">
+    <div class="practice-container">
+      
+      <!-- Interactive Practice Card -->
+      <div class="practice-card" id="practiceMainCard">
+        
+        <!-- Top Bar: Progress pill and progress bar -->
+        <div class="practice-top-bar">
+          <div class="question-progress-pill">
+            <span class="brand-badge-dot"></span>
+            <span id="questionProgressText">Question 1 of 6</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFillBar" style="width: 16.6%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question Prompt -->
+        <h2 class="practice-prompt-title">
+          <span id="questionPromptTitle">What will this print?</span>
+          <span class="practice-prompt-badge" id="questionDifficultyBadge">C Basics</span>
+        </h2>
+
+        <!-- Monospace Code Box with Line Numbers -->
+        <div class="practice-code-viewer">
+          <div class="code-viewer-header">
+            <div class="code-dots">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <span class="code-filename" id="codeFilename">solution.c</span>
+          </div>
+          <div class="code-editor-body">
+            <div class="code-line-numbers" id="codeLineNumbers">
+              1<br>2<br>3<br>4<br>5
+            </div>
+            <pre class="code-content-lines" id="codeLinesContainer"><code>Loading question code...</code></pre>
+          </div>
+        </div>
+
+        <!-- Prediction Form Area -->
+        <div class="prediction-section" id="predictionFormSection">
+          <form id="predictionForm" autocomplete="off">
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label for="predictedOutputInput" class="form-label">
+                <span>Your Predicted Output</span>
+                <span style="font-weight: 400; color: var(--text-dim); font-size: 0.8rem;">(Exact text/numbers printed to stdout)</span>
+              </label>
+              <input 
+                type="text" 
+                id="predictedOutputInput" 
+                class="prediction-input-box" 
+                placeholder="e.g. 20" 
+                required
+                autofocus
+              >
+            </div>
+
+            <div class="prediction-actions">
+              <button type="submit" class="btn-submit" id="checkAnswerBtn" style="max-width: 240px; margin-top: 0;">
+                <span class="btn-spinner"></span>
+                <span class="btn-text">Check my answer</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Result Feedback Card (Green if correct, Soft Red if wrong) -->
+        <div id="feedbackCard" class="feedback-card">
+          <div class="feedback-header">
+            <div class="feedback-title" id="feedbackTitleText">
+              <!-- Rendered via JS -->
+            </div>
+            <button type="button" class="btn-next-question" id="nextQuestionBtn">
+              <span>Next Question</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Side-by-side comparison -->
+          <div class="comparison-grid">
+            <div class="comparison-box">
+              <div class="comparison-box-label">Your Prediction</div>
+              <div class="comparison-output-val" id="dispYourPrediction">—</div>
+            </div>
+
+            <div class="comparison-box">
+              <div class="comparison-box-label">Actual Output</div>
+              <div class="comparison-output-val" id="dispActualOutput">—</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Completion View (Shown after finishing the session) -->
+      <div class="practice-card practice-completion" id="practiceCompletionCard">
+        <div class="practice-completion-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem;">Set Complete!</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto;">
+          You have reviewed all 6 C mental model questions across arrays, operators, and bounds.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <button type="button" class="cta-btn-primary" id="restartPracticeBtn" style="cursor: pointer; border: none;">
+            Practice Again
+          </button>
+          <a href="/dashboard" class="cta-btn-secondary">
+            Return to Dashboard
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="/static/js/practice.js"></script>
+</body>
+</html>

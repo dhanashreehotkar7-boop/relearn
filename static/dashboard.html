@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Re:Learn C</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Ambient Glow -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Global Header Navigation -->
+  <header class="header-nav" id="globalAppHeader"></header>
+
+  <!-- Main Dashboard Content -->
+  <main class="page-container">
+    <div class="dashboard-card" style="margin: 2rem auto;">
+      
+      <!-- Avatar with User Initial -->
+      <div class="dashboard-avatar" id="userAvatarInitial">
+        C
+      </div>
+
+      <!-- Welcome Heading -->
+      <h1 class="dashboard-welcome">
+        Welcome, <span class="dashboard-welcome-name" id="userNameGreeting">Student</span>
+      </h1>
+
+      <p class="dashboard-subtitle" id="userEmailDisplay">
+        Your interactive LeetCode-style C practice arena with real-time memory visualizers and error coaching.
+      </p>
+
+      <!-- Action Button: Start Practice -->
+      <div style="margin: 2.5rem 0 1.5rem;">
+        <a href="/problems" class="btn-submit" id="startPracticeBtn" style="text-decoration: none; max-width: 440px; margin: 0 auto; font-size: 1.1rem; padding: 1.1rem 2rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Explore C Problems</span>
+        </a>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+        <a href="/progress" class="nav-btn-ghost" style="font-size: 0.9rem;">View Progress</a>
+        <a href="/cards" class="nav-btn-ghost" style="font-size: 0.9rem;">Review Flashcards</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="/static/js/syntax.js"></script>
+  <script src="/static/js/app_header.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

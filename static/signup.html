@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Re:Learn - Master C Programming</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Floating Glowing Blobs -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <a href="/" class="brand-logo" id="brandLogoLink">
+      <div class="logo-icon-wrap">
+        <svg class="logo-svg" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 7C9.5 7 7.5 9 7.5 11.5C7.5 12.5 7.8 13.4 8.4 14.1C6.4 15.2 5 17.4 5 20C5 23.3 7.7 26 11 26C11.6 26 12.2 25.9 12.7 25.7" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M20 7C22.5 7 24.5 9 24.5 11.5C24.5 12.5 24.2 13.4 23.6 14.1C25.6 15.2 27 17.4 27 20C27 23.3 24.3 26 21 26C20.4 26 19.8 25.9 19.3 25.7" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M11 14L8 16.5L11 19" stroke="#818CF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 14L24 16.5L21 19" stroke="#818CF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 13L15 20" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <span class="brand-name">Re:Learn</span>
+        <span class="brand-tag"> [C]</span>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/login" class="nav-btn-ghost" id="topSignInBtn">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- Main Auth Page Content -->
+  <main class="page-container">
+    <div class="auth-wrapper">
+      <div class="glass-card">
+
+        <!-- Left Side: Hero / Brand Proposition -->
+        <div class="auth-brand-side">
+          <div>
+            <div class="brand-badge">
+              <span class="brand-badge-dot"></span>
+              Join Re:Learn Today
+            </div>
+
+            <h2 class="auth-hero-title">
+              Understand <br>
+              <span style="color: #6366F1;">WHY</span>, not just what.
+            </h2>
+
+            <p class="auth-hero-desc">
+              Master C memory models, pointer arithmetic, and system architectures from first principles.
+            </p>
+          </div>
+
+          <!-- Code Snippet Visual Preview -->
+          <div class="c-code-snippet">
+            <div class="code-header">
+              <div class="code-dots">
+                <span class="code-dot red"></span>
+                <span class="code-dot yellow"></span>
+                <span class="code-dot green"></span>
+              </div>
+              <span class="code-filename">pointers_intuition.c</span>
+            </div>
+            <pre><code><span class="token-kw">#include</span> <span class="token-str">&lt;stdio.h&gt;</span>
+
+<span class="token-type">int</span> <span class="token-fn">main</span>(<span class="token-type">void</span>) {
+    <span class="token-type">int</span> value = <span class="token-str">42</span>;
+    <span class="token-type">int</span> *ptr = &amp;value; <span class="token-comment">// address ref</span>
+    
+    <span class="token-fn">printf</span>(<span class="token-str">"val: %d @ %p\n"</span>, *ptr, ptr);
+    <span class="token-kw">return</span> <span class="token-str">0</span>;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Right Side: Frosted Glass Signup Form -->
+        <div class="auth-form-side">
+          <div class="form-header">
+            <h1 class="form-title">Create Account</h1>
+            <p class="form-subtitle">Begin your C programming journey in seconds</p>
+          </div>
+
+          <!-- Notification Alert Container -->
+          <div id="alertBox" class="alert-box" role="alert"></div>
+
+          <form id="signupForm" novalidate>
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name</label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="fullName" 
+                  class="form-input" 
+                  placeholder="e.g. Dennis Ritchie"
+                  autocomplete="name" 
+                  required
+                >
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <div class="input-wrapper">
+                <input 
+                  type="email" 
+                  id="email" 
+                  class="form-input" 
+                  placeholder="name@example.com" 
+                  autocomplete="email"
+                  required
+                >
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="password" class="form-label">Password (min. 6 characters)</label>
+              <div class="input-wrapper">
+                <input 
+                  type="password" 
+                  id="password" 
+                  class="form-input" 
+                  placeholder="••••••••"
+                  autocomplete="new-password"
+                  required
+                >
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <button type="button" class="toggle-password-btn" aria-label="Toggle password visibility" tabindex="-1">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit" id="signupSubmitBtn">
+              <span class="btn-spinner"></span>
+              <span class="btn-text">Create Free Account</span>
+            </button>
+          </form>
+
+          <!-- Sign In Switcher Box -->
+          <div class="form-footer-box">
+            Already have an account?
+            <a href="/login" class="form-footer-link" id="linkToLogin">Sign in</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/auth.js"></script>
+</body>
+</html>

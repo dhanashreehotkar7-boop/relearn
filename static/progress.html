@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress & Analytics | Re:Learn</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Ambient Glow -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Global Header Navigation -->
+  <header class="header-nav" id="globalAppHeader"></header>
+
+  <main class="page-container">
+    <div class="problems-header-hero">
+      <div class="problems-title-group">
+        <h1>Your Learning Metrics &amp; Mastery</h1>
+        <p>Real-time analytics on solve speed, accuracy, bug patterns, and concept retention.</p>
+      </div>
+    </div>
+
+    <!-- Top KPI Stat Metric Cards -->
+    <div class="progress-stats-grid">
+      <div class="stat-metric-card">
+        <div class="metric-card-label">Problems Solved</div>
+        <div class="metric-card-val" id="kpiSolved">0 / 10</div>
+      </div>
+      <div class="stat-metric-card">
+        <div class="metric-card-label">Attempt Accuracy</div>
+        <div class="metric-card-val" id="kpiAccuracy" style="color: #34D399;">0%</div>
+      </div>
+      <div class="stat-metric-card">
+        <div class="metric-card-label">Average Error Fix Time</div>
+        <div class="metric-card-val" id="kpiAvgFix" style="color: var(--cyan-accent);">0s</div>
+      </div>
+      <div class="stat-metric-card">
+        <div class="metric-card-label">Total Submissions</div>
+        <div class="metric-card-val" id="kpiAttempts">0</div>
+      </div>
+    </div>
+
+    <!-- Charts Row 1: Solve Time per Problem & Topic Mastery -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <h3 class="chart-card-title">Solve Time per Problem (Seconds)</h3>
+        <canvas id="solveTimeCanvas" width="600" height="280" style="width: 100%; height: auto;"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3 class="chart-card-title">Topic Mastery (Arrays vs Linked List)</h3>
+        <div id="topicMasteryContainer" style="padding-top: 0.5rem;">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts Row 2: Error Type Distribution Breakdown & Badges -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <h3 class="chart-card-title">Mistake &amp; Error Pattern Distribution</h3>
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <canvas id="errorDonutCanvas" width="260" height="260" style="max-width: 240px; height: auto;"></canvas>
+          <div id="errorLegendList" style="flex: 1; min-width: 180px;"></div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3 class="chart-card-title">Earned Badges &amp; Achievements</h3>
+        <div id="badgesGrid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/syntax.js"></script>
+  <script src="/static/js/app_header.js"></script>
+  <script src="/static/js/progress.js"></script>
+</body>
+</html>

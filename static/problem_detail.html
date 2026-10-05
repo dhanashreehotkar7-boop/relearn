@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Workspace | Re:Learn C</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Ambient Glow -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Global Header Navigation -->
+  <header class="header-nav" id="globalAppHeader"></header>
+
+  <main class="page-container" style="padding-top: 1rem; max-width: 1700px;">
+    <!-- 3-Column LeetCode Workspace Grid -->
+    <div class="workspace-grid">
+      
+      <!-- ==========================================
+           COLUMN 1: DESCRIPTION & SOLUTION TABS
+           ========================================== -->
+      <section class="panel-card" id="leftPanelCard">
+        <div class="panel-header-tabs">
+          <button class="panel-tab-btn active" id="tabBtnDesc">Description</button>
+          <button class="panel-tab-btn" id="tabBtnSol">
+            <span>Solution</span>
+            <span id="solLockIcon" style="font-size: 0.75rem; margin-left: 0.25rem;">🔒</span>
+          </button>
+        </div>
+
+        <div class="panel-body-scroll" id="descTabContent">
+          <div class="problem-desc-content" id="problemDescBody">
+            <h2 id="probTitleDisplay">Loading problem...</h2>
+            <div style="margin-bottom: 1rem;">
+              <span class="badge-diff badge-easy" id="probDiffDisplay">Easy</span>
+              <span style="font-size: 0.82rem; color: var(--cyan-accent); margin-left: 0.5rem; font-weight: 700;" id="probTopicDisplay">Arrays</span>
+            </div>
+            <div id="probDescriptionText">
+              <!-- Loaded via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Post-Solve Solution Tab Content -->
+        <div class="panel-body-scroll" id="solTabContent" style="display: none;">
+          <div class="problem-desc-content" id="problemSolBody">
+            <!-- Unlocked after solve -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           COLUMN 2: CODE EDITOR, TIMER & TEST RUNNER
+           ========================================== -->
+      <section class="panel-card" id="centerEditorPanel">
+        <!-- Editor Top Bar -->
+        <div class="editor-top-bar">
+          <div class="live-timer-wrap" title="Elapsed Time (pauses on tab switch)">
+            <span class="timer-pulse-dot"></span>
+            <span id="liveTimerDisplay">00:00.00</span>
+          </div>
+
+          <div class="editor-actions-group">
+            <button class="btn-run-code" id="btnRunCode" title="Test with public test cases">
+              <span>Run Tests</span>
+            </button>
+            <button class="btn-visualize" id="btnVisualize" title="Animate your code step-by-step">
+              <span>✨ Visualize</span>
+            </button>
+            <button class="btn-submit-code" id="btnSubmitCode" title="Submit solution for grading">
+              <span>Submit</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Compiler Error Highlight Banner (Phase 3) -->
+        <div class="editor-error-banner" id="editorErrorBanner">
+          <div class="error-banner-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span id="errorBannerTitle">Line 4: Compiler Error</span>
+          </div>
+          <div class="error-banner-hint" id="errorBannerExplanation">
+            <!-- Friendly explanation -->
+          </div>
+        </div>
+
+        <!-- Interactive Textarea Code Editor -->
+        <div class="code-editor-container">
+          <div class="editor-line-gutter" id="editorLineGutter">
+            <!-- Numbers generated dynamically -->
+          </div>
+          <textarea 
+            id="cCodeEditor" 
+            class="editor-textarea" 
+            spellcheck="false" 
+            autocomplete="off"
+            autocapitalize="off"
+            placeholder="// Write your C function here..."
+          ></textarea>
+        </div>
+
+        <!-- Bottom Results & Visualizer Panel (Phases 2 & 4) -->
+        <div class="editor-bottom-results">
+          <div class="results-tab-bar">
+            <div class="test-case-pills" id="testCasePillsRow">
+              <button class="tc-pill-btn active">Case 1</button>
+            </div>
+            <div id="overallVerdictBadge" style="font-size: 0.82rem; font-weight: 800;">
+              Ready to Run
+            </div>
+          </div>
+
+          <div class="results-content-body" id="resultsContentBody">
+            <div style="color: var(--text-dim); padding-top: 1rem;">
+              Click <strong>Run Tests</strong> to verify with sample inputs or <strong>Submit</strong> to evaluate all test cases.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           COLUMN 3: AI CHATBOT COACHING ASSISTANT
+           ========================================== -->
+      <section class="panel-card" id="rightChatPanel">
+        <div class="chat-panel-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Re:Learn C Coach</span>
+        </div>
+
+        <!-- Chat Stream -->
+        <div class="chat-message-list" id="chatMessageList">
+          <div class="chat-msg assistant">
+            👋 Hi! I'm your C practice coach. Need a hint on memory, loops, or pointer arithmetic? Ask me anytime!
+          </div>
+        </div>
+
+        <!-- Quick Hint Action Chips -->
+        <div class="chat-quick-actions">
+          <button class="quick-chip-btn" id="chipHint">💡 Give me a hint</button>
+          <button class="quick-chip-btn" id="chipExplainError">🔍 Explain my error</button>
+          <button class="quick-chip-btn" id="chipExplainProblem">📖 Explain problem</button>
+        </div>
+
+        <!-- Input Box -->
+        <form class="chat-input-row" id="chatInputForm">
+          <input 
+            type="text" 
+            class="chat-input-box" 
+            id="chatPromptInput" 
+            placeholder="Ask a question about your code..."
+            autocomplete="off"
+          >
+          <button type="submit" class="chat-send-btn" id="chatSendBtn">Send</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="/static/js/syntax.js"></script>
+  <script src="/static/js/app_header.js"></script>
+  <script src="/static/js/visualizer.js"></script>
+  <script src="/static/js/problem_detail.js"></script>
+</body>
+</html>

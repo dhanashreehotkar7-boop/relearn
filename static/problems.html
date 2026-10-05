@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C Problems & Challenges | Re:Learn</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Ambient Glow -->
+  <div class="blob-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <!-- Global Header Navigation -->
+  <header class="header-nav" id="globalAppHeader"></header>
+
+  <main class="page-container">
+    <!-- Header Hero -->
+    <div class="problems-header-hero">
+      <div class="problems-title-group">
+        <h1>Practice C Algorithms &amp; Pointers</h1>
+        <p>Master mental models, pointer arithmetic, and low-level memory in pure C.</p>
+      </div>
+
+      <!-- Topic Filter Tabs -->
+      <div class="topic-tabs">
+        <button class="topic-tab-btn active" data-topic="all" id="tabAll">All Topics</button>
+        <button class="topic-tab-btn" data-topic="Arrays" id="tabArrays">Arrays</button>
+        <button class="topic-tab-btn" data-topic="Linked List" id="tabLinkedList">Linked List</button>
+      </div>
+    </div>
+
+    <!-- Problems Table Card -->
+    <div class="problems-table-card">
+      <div class="problem-row header-row">
+        <div>Status</div>
+        <div>Title</div>
+        <div>Topic</div>
+        <div>Difficulty</div>
+        <div>Best Time</div>
+        <div>Action</div>
+      </div>
+
+      <div id="problemsListContainer">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/syntax.js"></script>
+  <script src="/static/js/app_header.js"></script>
+  <script src="/static/js/problems.js"></script>
+</body>
+</html>

@@ -1,8 +1,12 @@
 import sqlite3
 import time
+import os
 from pathlib import Path
 
-DB_FILE = Path(__file__).resolve().parent.parent / "relearn.db"
+if os.getenv("VERCEL"):
+    DB_FILE = Path("/tmp/relearn.db")
+else:
+    DB_FILE = Path(__file__).resolve().parent.parent / "relearn.db"
 
 def get_db_connection():
     conn = sqlite3.connect(DB_FILE, timeout=30.0)
